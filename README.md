@@ -6,7 +6,7 @@ Plain HTML, CSS and JavaScript. There is **no build step and no dependencies**. 
 
 ## Features
 
-- Loading screen on the first visit of each browser session (animated monogram, progress ring and a curtain reveal)
+- Loading screen on every visit (animated monogram, progress ring and a curtain reveal)
 - Chat assistant ("Alvin's Assistant") with suggested questions — works out of the box, with an optional upgrade to a real AI model
 - Warm, editorial design with light and dark themes (follows the visitor's system setting)
 - Hero with portrait, floating service cards and scroll indicator
@@ -70,10 +70,10 @@ Cloudflare Pages also runs the files in `functions/` automatically, which is wha
 
 ## The loading screen
 
-- Shows once per browser session (it is skipped when the visitor reloads or navigates within the same tab session).
+- Shows on **every visit and every refresh**.
 - Finishes as soon as the page has loaded, with a short minimum time so it doesn't flash. A failsafe always removes it.
 - Edit the timings (`MIN`, `MAX`) at the top of `js/main.js`; the look is in the `/* loading screen */` block of `css/styles.css`.
-- To show it on every load, delete the `sessionStorage.setItem('as-visited', '1')` line in `js/main.js`.
+- To make it show only once per browser session instead, add a `sessionStorage` check in the inline `<script>` in the `<head>` of `index.html` and set the flag in `finish()` in `js/main.js`.
 
 ## The chat assistant
 

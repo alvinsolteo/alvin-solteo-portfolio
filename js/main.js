@@ -17,7 +17,6 @@ window.loaderDone=loaderDone;
   function paint(v){bar.style.transform='scaleX('+v+')';pct.textContent=Math.round(v*100);ring.style.strokeDashoffset=(339.3*(1-v)).toFixed(1)}
   function finish(){
     if(ended)return;ended=true;paint(1);
-    try{sessionStorage.setItem('as-visited','1')}catch(e){}
     setTimeout(()=>{el.classList.add('done')},rm?0:250);
     setTimeout(()=>{rootEl.classList.remove('loading');el.remove();loaderResolve()},rm?50:1250);
   }
