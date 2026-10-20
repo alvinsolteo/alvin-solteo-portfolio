@@ -56,6 +56,7 @@ TESTIMONIALS
 - Sylvia C. (CEO): valuable team member with strong work ethic and commitment to purpose.
 
 CONTACT DETAILS (share these when asked how to reach or hire Alvin)
+- Book a free call: [Book a Free Call](https://calendly.com/alvinsolteo-va/30min)
 - Email: [alvinsolteo.va@gmail.com](mailto:alvinsolteo.va@gmail.com)
 - Phone: [+63 981 095 2003](tel:+639810952003)
 - LinkedIn: [Alvin Solteo](https://www.linkedin.com/in/alvin-solteo-897347292/)
