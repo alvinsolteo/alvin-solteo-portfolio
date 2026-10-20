@@ -11,13 +11,26 @@
 <meta property="og:description" content="Alvin Solteo — virtual assistant in Davao City offering executive assistance, HR and recruitment support, and administrative operations.">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 
-<script>document.documentElement.classList.add('js')</script>
+<script>(function(){var d=document.documentElement;d.classList.add('js');try{if(!sessionStorage.getItem('as-visited'))d.classList.add('loading')}catch(e){d.classList.add('loading')}setTimeout(function(){d.classList.remove('loading')},9000)})()</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+<div class="loader" id="loader" role="status" aria-live="polite" aria-label="Loading portfolio">
+  <span class="ld-blob b1"></span><span class="ld-blob b2"></span>
+  <div class="ld-inner">
+    <div class="ld-mark">
+      <svg viewBox="0 0 120 120" aria-hidden="true"><circle class="ld-track" cx="60" cy="60" r="54"/><circle class="ld-ring" id="ldRing" cx="60" cy="60" r="54"/></svg>
+      <span class="ld-mono">AS</span>
+    </div>
+    <p class="ld-name">Alvin Solteo</p>
+    <p class="ld-role">Virtual Assistant</p>
+    <div class="ld-bar" aria-hidden="true"><span id="ldBar"></span></div>
+    <p class="ld-pct" aria-hidden="true"><span id="ldPct">0</span>%</p>
+  </div>
+</div>
 <div class="progress" id="progress"></div>
 
 <nav id="nav" aria-label="Primary">
@@ -184,7 +197,7 @@
   </div>
 </section>
 
-<section>
+<section id="recording">
   <div class="wrap">
     <div class="video-card reveal">
       <div class="thumb" id="thumb">
@@ -206,12 +219,56 @@
       <p class="label">07 · Let’s connect</p>
       <h2>Ready for a more organized way forward?</h2>
       <p>Looking for support with executive tasks, HR coordination, or daily operations? Let’s talk about how I can help your team run more smoothly.</p>
-      <div class="btns"><a class="btn primary" href="mailto:hello@example.com">Get in touch</a><a class="btn ghost" href="#top">Back to top</a></div>
+      <div class="btns"><a class="btn primary" href="mailto:alvinsolteo.va@gmail.com">Get in touch</a><a class="btn ghost" href="#top">Back to top</a></div>
     </div>
   </div>
 </section>
-<footer><div class="wrap">© 2026 Alvin Solteo · Davao City, Philippines</div></footer>
+<footer class="site-footer" id="footer">
+  <div class="wrap">
+    <div class="foot-grid" data-stagger>
+      <div class="foot-brand">
+        <a class="foot-logo" href="#top" aria-label="Alvin Solteo, back to top"><span class="mono">AS</span><span class="nm">Alvin Solteo</span></a>
+        <p>Your reliable virtual assistant for executive support, HR coordination, and day-to-day operations.</p>
+        <div class="foot-social">
+          <a href="https://www.linkedin.com/in/alvin-solteo-897347292/" target="_blank" rel="noopener noreferrer" aria-label="Alvin Solteo on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M8 11v5m0-8v.01M12 16v-5m4 5v-3a2 2 0 1 0-4 0"/><path d="M3 7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4z"/></g></svg></a>
+          <a href="mailto:alvinsolteo.va@gmail.com" aria-label="Email Alvin"><svg viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="m22 7l-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect width="20" height="16" x="2" y="4" rx="2"/></g></svg></a>
+          <a href="tel:+639810952003" aria-label="Call Alvin"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233a14 14 0 0 0 6.392 6.384"/></svg></a>
+        </div>
+      </div>
+      <div class="foot-col" role="navigation" aria-label="Footer navigation">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#about">About</a></li><li><a href="#services">Services</a></li><li><a href="#experience">Experience</a></li>
+          <li><a href="#tools">Tools</a></li><li><a href="#credentials">Credentials</a></li><li><a href="#testimonials">Testimonials</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>What I do</h4>
+        <ul>
+          <li><a href="#services">Executive assistance</a></li><li><a href="#services">HR &amp; recruitment</a></li>
+          <li><a href="#services">Operations &amp; admin</a></li><li><a href="#services">Digital support</a></li>
+        </ul>
+      </div>
+      <div class="foot-col foot-contact">
+        <h4>Contact</h4>
+        <ul class="foot-contact-list">
+          <li><span class="ci"><svg viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="m22 7l-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect width="20" height="16" x="2" y="4" rx="2"/></g></svg></span><a href="mailto:alvinsolteo.va@gmail.com">alvinsolteo.va@gmail.com</a></li>
+          <li><span class="ci"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233a14 14 0 0 0 6.392 6.384"/></svg></span><a href="tel:+639810952003">+63 981 095 2003</a></li>
+          <li><span class="ci"><svg viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M8 11v5m0-8v.01M12 16v-5m4 5v-3a2 2 0 1 0-4 0"/><path d="M3 7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4z"/></g></svg></span><a href="https://www.linkedin.com/in/alvin-solteo-897347292/" target="_blank" rel="noopener noreferrer">LinkedIn profile</a></li>
+          <li><span class="ci"><svg viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></g></svg></span><span>Davao City, Philippines</span></li>
+        </ul>
+        <button type="button" class="foot-chat" id="footChat">Or ask my assistant <span aria-hidden="true">→</span></button>
+      </div>
+    </div>
+    <p class="foot-legal">Disclaimer: Alvin Solteo provides virtual assistant and administrative support services. Content on this site is for general information only and does not constitute legal, tax, or professional advice. The chat assistant is an automated helper and can make mistakes, so please contact Alvin directly to confirm any details.</p>
+    <div class="foot-bottom">
+      <span>© 2026 Alvin Solteo. All rights reserved.</span>
+      <a class="foot-top" href="#top">Back to top <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 15 7-7 7 7"/></svg></a>
+    </div>
+  </div>
+</footer>
 
 <script src="js/main.js" defer></script>
+<script src="js/chat.js" defer></script>
 </body>
 </html>

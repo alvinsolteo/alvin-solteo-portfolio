@@ -1,6 +1,38 @@
 /* Alvin Solteo — Virtual Assistant Portfolio
-   Behaviour: tools tabs, certificates lightbox, video, testimonials carousel,
-   scroll progress, reveal-on-scroll and counters. */
+   Behaviour: loading screen, tools tabs, certificates lightbox, video,
+   testimonials carousel, scroll progress, reveal-on-scroll and counters.
+   (The chat assistant lives in js/chat.js.) */
+/* loading screen */
+const rootEl=document.documentElement;
+let loaderResolve; const loaderDone=new Promise(r=>loaderResolve=r);
+window.loaderDone=loaderDone;
+(function(){
+  const el=document.getElementById('loader');
+  if(!el||!rootEl.classList.contains('loading')){rootEl.classList.remove('loading');if(el)el.remove();loaderResolve();return}
+  const bar=document.getElementById('ldBar'),pct=document.getElementById('ldPct'),ring=document.getElementById('ldRing');
+  const rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const MIN=rm?300:1800,MAX=6000,t0=performance.now();
+  let loaded=document.readyState==='complete',p=0,ended=false;
+  addEventListener('load',()=>{loaded=true});
+  function paint(v){bar.style.transform='scaleX('+v+')';pct.textContent=Math.round(v*100);ring.style.strokeDashoffset=(339.3*(1-v)).toFixed(1)}
+  function finish(){
+    if(ended)return;ended=true;paint(1);
+    try{sessionStorage.setItem('as-visited','1')}catch(e){}
+    setTimeout(()=>{el.classList.add('done')},rm?0:250);
+    setTimeout(()=>{rootEl.classList.remove('loading');el.remove();loaderResolve()},rm?50:1250);
+  }
+  function tick(now){
+    if(ended)return;
+    const t=now-t0,base=1-Math.pow(1-Math.min(t/MIN,1),3),goal=Math.min(base,loaded?1:.92);
+    p+=(goal-p)*.16;if(Math.abs(goal-p)<.003)p=goal;
+    paint(p);
+    if((loaded&&t>=MIN&&p>=.999)||t>MAX){finish();return}
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+  setTimeout(finish,MAX+700);
+})();
+
 /* Tool logos: tool name -> file in assets/logos/tools/ */
 const ICON_DIR='assets/logos/tools/';
 const ICONS={
@@ -71,6 +103,7 @@ const data=[
  ['E-Commerce & Marketing',['Amazon','AWS','Helium 10','Jungle Scout','Keepa','ClickFunnels','GoHighLevel','Meta','LinkedIn','Sales Navigator']],
  ['Design, Content & AI',['Claude','Canva','Lightroom','Adobe','CapCut','Microsoft Copilot','ChatGPT']]
 ];
+window.PORTFOLIO_TOOLS=data;
 const palette=['#b57456','#171d3b','#5d6486','#a4654a','#7a5c8a','#3f7f78','#c28a4a','#8a4f5e'];
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -205,6 +238,9 @@ tmStage.addEventListener('pointerup',e=>{if(tmX===null)return;const dx=e.clientX
 tmGo(0);tmRestart();
 addEventListener('resize',tmFit);addEventListener('load',tmFit);if(document.fonts&&document.fonts.ready)document.fonts.ready.then(tmFit);
 
+/* footer: open chat assistant */
+document.getElementById('footChat').addEventListener('click',()=>{const f=document.getElementById('chatFab');if(f&&f.getAttribute('aria-expanded')!=='true')f.click()});
+
 /* nav */
 const nav=document.getElementById('nav'),menuBtn=document.getElementById('menuBtn');
 menuBtn.addEventListener('click',()=>{const o=nav.classList.toggle('open');menuBtn.setAttribute('aria-expanded',o)});
@@ -235,5 +271,5 @@ const io=new IntersectionObserver(es=>es.forEach(e=>{
   if(e.target.dataset&&e.target.dataset.count)count(e.target);
   io.unobserve(e.target);
 }),{threshold:.12,rootMargin:'0px 0px -5% 0px'});
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+loaderDone.then(()=>document.querySelectorAll('.reveal').forEach(el=>io.observe(el)));
 document.querySelectorAll('.stat').forEach(el=>{el.addEventListener('animationstart',()=>{},{once:true})});
