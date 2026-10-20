@@ -104,9 +104,9 @@ Open `js/chat.js` and look for the `KB` array. Each entry has keywords (`k`), th
 
 ## Contact details
 
-Alvin's email, phone number and LinkedIn link appear in the footer, the closing call-to-action and the chat assistant's answers. To change them, search the project for `alvinsolteo.va@gmail.com`, `+63 981 095 2003` / `+639810952003` and `alvin-solteo-897347292` and update these places:
+Alvin's email and phone number appear in the closing call-to-action button and the chat assistant's answers; the footer shows only the LinkedIn link and location. To change them, search the project for `alvinsolteo.va@gmail.com`, `+63 981 095 2003` / `+639810952003` and `alvin-solteo-897347292` and update these places:
 
-- `index.html` (footer and the "Get in touch" button)
+- `index.html` (the "Get in touch" button; the footer LinkedIn link)
 - `js/chat.js` (the `contact` answer in the `KB` array, plus the pricing and availability answers)
 - `functions/api/chat.js` (the `CONTACT DETAILS` block of `SYSTEM_PROMPT`, used by AI mode)
 
