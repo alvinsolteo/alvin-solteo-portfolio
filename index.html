@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Alvin Solteo — Virtual Assistant</title>
+<meta name="description" content="Alvin Solteo — virtual assistant in Davao City offering executive assistance, HR and recruitment support, and administrative operations.">
+<meta name="theme-color" content="#f1e9df">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Alvin Solteo — Virtual Assistant">
+<meta property="og:description" content="Alvin Solteo — virtual assistant in Davao City offering executive assistance, HR and recruitment support, and administrative operations.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+<script>document.documentElement.classList.add('js')</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div class="progress" id="progress"></div>
+
+<nav id="nav" aria-label="Primary">
+  <div class="wrap">
+    <a class="brand" href="#top">Alvin Solteo</a>
+    <div class="links" id="links">
+      <a href="#about">About</a><a href="#services">Services</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#tools">Tools</a><a href="#credentials">Credentials</a><a href="#testimonials">Testimonials</a><a href="#contact">Contact</a>
+    </div>
+    <a class="btn primary" href="#contact">Let’s work together</a>
+    <button class="menu-btn" id="menuBtn" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="links"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="blob b1"></div><div class="blob b2"></div>
+  <div class="wrap">
+    <div id="heroText">
+            <h1 class="reveal" style="--d:100ms">The right support makes room for <span class="u">bigger things.</span></h1>
+      <p class="lead reveal" style="--d:200ms">I’m Alvin Solteo, a virtual assistant based in Davao City. I help teams stay organized through executive assistance, HR coordination, administrative operations, and dependable day-to-day support.</p>
+      <div class="chips reveal" style="--d:300ms"><span class="chip">Executive support</span><span class="chip">HR &amp; recruitment</span><span class="chip">Operations</span></div>
+      <div class="btns reveal" style="--d:400ms"><a class="btn primary" href="#services">View my services</a><a class="btn ghost" href="#contact">Let’s work together</a></div>
+    </div>
+    <div class="hero-visual reveal" style="--d:250ms">
+      <div class="portrait">
+        <span class="dot" aria-hidden="true"></span>
+        <img src="assets/images/portrait.jpg" width="820" height="910" alt="Alvin Solteo smiling while speaking into a microphone">
+        <div class="float f1"><span class="ico"><svg viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></span>HR &amp; Recruitment</div>
+        <div class="float f2"><span class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M9 16l2 2 4-4"/></svg></span>Calendar Management</div>
+        <div class="float f3"><span class="ico"><svg viewBox="0 0 24 24"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2M12 11h4M12 16h4M8 11h.01M8 16h.01"/></svg></span>Admin &amp; Operations</div>
+      </div>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="hero-foot reveal" style="--d:500ms">
+      <a class="cue" href="#about" aria-label="Scroll to About">Scroll<svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></a>
+    </div>
+  </div>
+</header>
+
+<div class="trusted">
+  <p class="label">Worked with teams across industries</p>
+  <div class="mask"><div class="marquee" id="marquee"></div></div>
+</div>
+
+<section id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="reveal"><p class="label">01 · About me</p><h2>Thoughtful assistance, grounded in <span class="u">real</span> experience.</h2></div>
+      <div class="reveal" style="--d:150ms">
+        <p>My background spans executive support, human resources, and customer service. I’ve supported a U.S.-based nonprofit, disability-care operations in Australia, remote recruitment, and office-based teams in the Philippines.</p>
+        <p>From calendars and correspondence to recruitment, documentation, rostering, and reporting, I bring attention to detail, clear communication, and a steady approach to the work behind a workflow.</p>
+      </div>
+    </div>
+    <div class="stats" data-stagger>
+      <div class="stat"><b data-count="5">0</b><span>Professional roles</span></div>
+      <div class="stat"><b data-count="0" id="toolCount">0</b><span>Tools &amp; platforms</span></div>
+      <div class="stat"><b data-count="6">0</b><span>Certificates</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="services" class="alt">
+  <div class="wrap">
+    <div class="sec-head reveal"><p class="label">02 · How I can help</p><h2>Support across the <span class="u">workday.</span></h2></div>
+    <div class="grid4" data-stagger>
+      <div class="card"><span class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M9 16l2 2 4-4"/></svg></span><span class="tag">Support</span><h3>Executive assistance</h3><p>Calendar management, meeting follow-ups, email correspondence, calls, research, and organized documentation.</p></div>
+      <div class="card"><span class="ico"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><span class="tag">People</span><h3>HR &amp; recruitment</h3><p>Job postings, candidate screening, interview coordination, onboarding, and compliance support.</p></div>
+      <div class="card"><span class="ico"><svg viewBox="0 0 24 24"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2M12 11h4M12 16h4M8 11h.01M8 16h.01"/></svg></span><span class="tag">Systems</span><h3>Operations &amp; admin</h3><p>Client intake, rostering, service documentation, invoicing support, reporting, and workflow coordination.</p></div>
+      <div class="card"><span class="ico"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span><span class="tag">Digital</span><h3>Digital support</h3><p>Social media coordination, LinkedIn presence, basic Canva visuals, digital communications, and online research.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="sec-head reveal"><p class="label">03 · Professional experience</p><h2>The experience behind <span class="u">the support.</span></h2></div>
+    <div class="timeline" id="timeline">
+      <article class="xp reveal"><time>Aug 2025 – Aug 2026</time><h3>Executive Assistant &amp; HR Operations Support · Boundless Freedom Project</h3><p>Supported a U.S.-based nonprofit with calls, email, calendars, meeting follow-ups, research, recruitment support, documentation, and digital communications.</p></article>
+      <article class="xp reveal"><time>Oct 2024 – Jul 2026</time><h3>HR &amp; Admin Assistant · Cloudstaff Health Care Pty Ltd / United Disability Care Pty Ltd</h3><p>Coordinated NDIS administration, client intake, service agreements, workforce rostering, and claims and invoicing support, recruitment, onboarding, compliance records, and operational reporting.</p></article>
+      <article class="xp reveal"><time>Apr 2024 – Sep 2024</time><h3>Remote HR Specialist · Creative Tour</h3><p>Supported recruitment for remote roles in the Philippines, from job postings and interviews through candidate assessment and onboarding, for a Zurich-based company.</p></article>
+      <article class="xp reveal"><time>Aug 2018 – Apr 2024</time><h3>HR &amp; Administrative Assistant · The University of Mindanao</h3><p>Coordinated training logistics, maintained employee records, supported onboarding and orientation, and assisted employees with benefits information.</p></article>
+      <article class="xp reveal"><time>Nov 2015 – Jul 2016</time><h3>Customer Service Associate · Essilor Philippines Optical Dist. Inc.</h3><p>Responded to customer enquiries by phone, email, and live chat, processed orders, tracked deliveries, and worked with sales and logistics teams to resolve issues.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="skills" class="band">
+  <div class="wrap">
+    <div class="sec-head reveal"><p class="label">04 · Core strengths</p><h2>Reliable support, from the details to the <span class="u">bigger picture.</span></h2></div>
+    <div class="tiles" data-stagger>
+      <div class="tile"><div class="n">01</div><h3>Executive coordination</h3><p>Calendars, correspondence, meetings, follow-ups, and research.</p></div>
+      <div class="tile"><div class="n">02</div><h3>People operations</h3><p>Recruitment assistance, onboarding, employee records, and HR coordination.</p></div>
+      <div class="tile"><div class="n">03</div><h3>Administrative operations</h3><p>Documentation, rostering, reporting, and workflow support.</p></div>
+      <div class="tile"><div class="n">04</div><h3>Client communication</h3><p>Responsive service across calls, email, live chat, and digital channels.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="tools" class="alt">
+  <div class="wrap">
+    <div class="sec-head reveal"><p class="label">05 · Working toolkit</p><h2>The tools behind a <span class="u">well-run workday.</span></h2><p class="sub">A practical mix of platforms for coordination, people operations, commerce, and creative work. Browse by discipline.</p></div>
+    <div class="tabs reveal" role="tablist" aria-label="Tool categories" id="tabs"></div>
+    <div id="toolGroups"></div>
+  </div>
+</section>
+
+<section id="credentials">
+  <div class="wrap">
+    <div class="sec-head reveal"><p class="label">06 · Education &amp; credentials</p><h2>A foundation for <span class="u">dependable work.</span></h2></div>
+    <div class="grid4 grid3" data-stagger id="eduGrid">
+      <div class="card"><span class="ico"><svg viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg></span><h3>Business Administration</h3><p>BS in Business Administration, major in Marketing Management · The University of Mindanao · Graduated 2015 · University Scholar</p></div>
+      <div class="card"><span class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.48 12.89 17 22l-5-3-5 3 1.52-9.11"/></svg></span><h3>Human Resources</h3><p>Passed the Certified Human Resources Associate (CHRA) examination.</p></div>
+      <div class="card"><span class="ico"><svg viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></span><h3>NDIS learning</h3><p>New Worker NDIS Induction Module and NDIS Worker Orientation Module: “Quality, Safety and You.”</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="certificates">
+  <div class="wrap">
+    <div class="sec-head reveal"><p class="label">Sample certificates</p><h2>A little more of the person <span class="u">behind the support.</span></h2></div>
+    <div class="cert-grid" id="certs" data-stagger></div>
+  </div>
+</section>
+
+<dialog id="lightbox" aria-label="Certificate preview"><button type="button">Close</button><img alt=""><p></p></dialog>
+
+<section id="testimonials">
+  <div class="wrap">
+    <div class="sec-head reveal"><p class="label">Testimonials</p><h2>Kind words from the people I’ve <span class="u">supported.</span></h2></div>
+    <div class="tm reveal" id="tm" role="region" aria-roledescription="carousel" aria-label="Testimonials" tabindex="0">
+      <div class="tm-stage" id="tmStage">
+        <span class="tm-circle c1" aria-hidden="true"></span><span class="tm-circle c2" aria-hidden="true"></span>
+        <figure class="tm-slide is-active" data-name="Matt D.">
+          <blockquote>
+            <p>Alvin has been an exceptional executive assistant and a valuable part of my day-to-day operations. He consistently keeps my busy schedule organized, manages my calendar efficiently, and ensures that important tasks and deadlines are never overlooked.</p>
+            <p>What truly sets Alvin apart is his proactive approach and attention to detail. He takes initiative without being asked, anticipates what needs to be done, and makes sure everything runs smoothly.</p>
+            <p>From managing my inbox and prioritizing urgent emails to coordinating meetings and keeping projects on track, Alvin has proven to be dependable, organized, and resourceful.</p>
+            <p>His professionalism, reliability, and willingness to go the extra mile have made a significant difference in my productivity. I genuinely appreciate his dedication and highly recommend him to anyone looking for a trustworthy and proactive executive assistant.</p>
+          </blockquote>
+          <figcaption><span class="rule"></span><b>Matt D.</b><span class="role">Nonprofit Founder/CFO</span></figcaption>
+        </figure>
+        <figure class="tm-slide" data-name="Anne C." aria-hidden="true">
+          <blockquote>
+            <p>Alvin has been an incredible support to me as my executive assistant. He keeps me organized, manages my calendar efficiently, and ensures important tasks and deadlines never fall through the cracks.</p>
+            <p>From compliance to data entry, he keeps everything in check. His accuracy, attention to detail, and quick turnaround times make a huge difference in my day-to-day work. He’s proactive, reliable, and always takes initiative without being asked.</p>
+            <p>I truly appreciate his consistency, positive attitude, and the care he puts into his work.</p>
+          </blockquote>
+          <figcaption><span class="rule"></span><b>Anne C.</b><span class="role">Managing Director</span></figcaption>
+        </figure>
+        <figure class="tm-slide" data-name="Sylvia C." aria-hidden="true">
+          <blockquote>
+            <p>Alvin has been such a valuable member of our team. He has shown incredible work ethic and commitment to our purpose, and he will truly be missed by our UDC family.</p>
+            <p>We are grateful for the time he spent with us, and I wish him and his family happiness and good health.</p>
+          </blockquote>
+          <figcaption><span class="rule"></span><b>Sylvia C.</b><span class="role">CEO</span></figcaption>
+        </figure>
+      </div>
+      <div class="tm-nav">
+        <button type="button" class="tm-arrow" id="tmPrev" aria-label="Previous testimonial"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
+        <div class="tm-tabs" id="tmTabs"></div>
+        <button type="button" class="tm-arrow" id="tmNext" aria-label="Next testimonial"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="video-card reveal">
+      <div class="thumb" id="thumb">
+        <video id="evs" preload="none" playsinline poster="assets/images/evs-poster.jpg" aria-label="EVS video recording"><source src="assets/video/evs-recording.mp4" type="video/mp4"></video>
+        <button type="button" class="play" id="playBtn" aria-label="Play EVS video recording"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 1l11 6-11 6z" fill="currentColor"/></svg> Play recording</button>
+      </div>
+      <div class="text">
+        <p class="label">EVS video recording</p>
+        <h2>A closer look at the work behind the scenes.</h2>
+        <p>Watch the EVS video recording for a short introduction to who I am and how I work. Select play to start the video.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" style="padding-top:20px">
+  <div class="wrap">
+    <div class="cta reveal">
+      <p class="label">07 · Let’s connect</p>
+      <h2>Ready for a more organized way forward?</h2>
+      <p>Looking for support with executive tasks, HR coordination, or daily operations? Let’s talk about how I can help your team run more smoothly.</p>
+      <div class="btns"><a class="btn primary" href="mailto:hello@example.com">Get in touch</a><a class="btn ghost" href="#top">Back to top</a></div>
+    </div>
+  </div>
+</section>
+<footer><div class="wrap">© 2026 Alvin Solteo · Davao City, Philippines</div></footer>
+
+<script src="js/main.js" defer></script>
+</body>
+</html>
