@@ -20,7 +20,7 @@
   var toolCount = TOOLS.reduce(function (a, g) { return a + g[1].length; }, 0) || 59;
 
   /* ---------- built-in knowledge ---------- */
-  var DEFAULT_CHIPS = ['What services does he offer?', 'Tell me about his experience', 'Which tools does he use?', 'How can I contact Alvin?'];
+  var DEFAULT_CHIPS = ['What services does he offer?', 'Tell me about his experience', 'Which tools does he use?', 'What do clients say about him?'];
 
   var KB = [
     { id: 'greet', a: 'Hi there! 👋 I’m Alvin’s assistant. I can tell you about his **services, experience, tools and credentials** — what would you like to know?', next: DEFAULT_CHIPS },
@@ -31,16 +31,16 @@
       next: ['What services does he offer?', 'Tell me about his experience', 'What do clients say about him?'] },
     { id: 'services', k: ['service', 'offer', 'what can you', 'what do you do', 'what can he', 'what does he do', 'help with', 'help me', 'support', 'assist', 'capabilit', 'specialt', 'skills', 'do for'],
       a: 'Alvin helps teams with:\n- **Executive assistance** — calendar management, meeting follow-ups, email correspondence, calls, research and documentation\n- **HR & recruitment** — job postings, candidate screening, interview coordination, onboarding and compliance support\n- **Operations & admin** — client intake, rostering, service documentation, invoicing support and reporting\n- **Digital support** — social media coordination, LinkedIn presence, basic Canva visuals and online research\n[View services](#services)',
-      next: ['Tell me about his HR experience', 'Which tools does he use?', 'How can I contact Alvin?'] },
+      next: ['Tell me about his HR experience', 'Which tools does he use?'] },
     { id: 'exec', k: ['executive', 'calendar', 'inbox', 'email management', 'schedul', 'meeting', 'correspondence', 'travel', 'personal assistant'],
       a: 'On the executive-assistant side, Alvin handles **calendars, inbox and correspondence, meeting follow-ups, calls, research and documentation**. One client says he “consistently keeps my busy schedule organized” and makes sure important tasks and deadlines are never overlooked.\n[Read the testimonials](#testimonials)',
-      next: ['What do clients say about him?', 'Which tools does he use?', 'How can I contact Alvin?'] },
+      next: ['What do clients say about him?', 'Which tools does he use?'] },
     { id: 'hr', k: ['hr', 'human resources', 'recruit', 'hiring', 'onboard', 'interview', 'candidate', 'screening', 'employee records', 'training'],
       a: 'Alvin has hands-on HR experience: he supported **recruitment for remote roles** (job postings, interviews, candidate assessment and onboarding), maintained **employee records**, coordinated **training logistics and orientation**, and supported **compliance records**. He has also passed the Certified Human Resources Associate (CHRA) examination.\n[See his experience](#experience)',
-      next: ['Tell me about his experience', 'What’s his education?', 'How can I contact Alvin?'] },
+      next: ['Tell me about his experience', 'What’s his education?'] },
     { id: 'ndis', k: ['ndis', 'disability', 'roster', 'rostering', 'care', 'claims', 'invoic', 'compliance', 'australia'],
       a: 'In his HR & admin role supporting disability-care operations in Australia, Alvin coordinated **NDIS administration, client intake, service agreements, workforce rostering, claims and invoicing support**, onboarding and compliance records. He has also completed the NDIS Worker Orientation and New Worker NDIS Induction modules.\n[View certificates](#certificates)',
-      next: ['Does he have certifications?', 'Tell me about his experience', 'How can I contact Alvin?'] },
+      next: ['Does he have certifications?', 'Tell me about his experience'] },
     { id: 'experience', k: ['experience', 'work history', 'career', 'resume', 'cv', 'previous', 'past role', 'employer', 'worked', 'timeline', 'jobs', 'companies', 'roles', 'years'],
       a: 'Here’s a quick timeline:\n- **Aug 2025 – Aug 2026** — Executive Assistant & HR Operations Support, Boundless Freedom Project\n- **Oct 2024 – Jul 2026** — HR & Admin Assistant, Cloudstaff Health Care / United Disability Care\n- **Apr 2024 – Sep 2024** — Remote HR Specialist, Creative Tour\n- **Aug 2018 – Apr 2024** — HR & Administrative Assistant, The University of Mindanao\n- **Nov 2015 – Jul 2016** — Customer Service Associate, Essilor Philippines\n[Open the experience timeline](#experience)',
       next: ['Tell me about his HR experience', 'What’s his education?', 'What do clients say about him?'] },
@@ -48,32 +48,32 @@
       a: function () {
         return 'Alvin works with **' + toolCount + ' tools and platforms** across five areas:\n- **Office & Communication** — Microsoft 365, Google Workspace, Teams, Slack, Zoom and more\n- **Projects & Productivity** — Asana, Notion, Airtable, Trello, Monday.com and more\n- **CRM, HR & Business** — HubSpot, Xero, QuickBooks, JobAdder, Employment Hero and more\n- **E-Commerce & Marketing** — Amazon, Helium 10, Jungle Scout, GoHighLevel, LinkedIn and more\n- **Design, Content & AI** — Canva, Adobe, CapCut, ChatGPT, Claude and Microsoft Copilot\n[Browse the toolkit](#tools)';
       },
-      next: ['What services does he offer?', 'Tell me about his experience', 'How can I contact Alvin?'] },
+      next: ['What services does he offer?', 'Tell me about his experience'] },
     { id: 'education', k: ['education', 'degree', 'school', 'universit', 'studied', 'study', 'graduat', 'scholar', 'chra', 'college', 'bachelor'],
       a: 'Alvin holds a **BS in Business Administration, major in Marketing Management** from The University of Mindanao (graduated 2015, University Scholar) and passed the **Certified Human Resources Associate (CHRA)** examination.\n[See credentials](#credentials)',
-      next: ['Does he have certifications?', 'Tell me about his experience', 'How can I contact Alvin?'] },
+      next: ['Does he have certifications?', 'Tell me about his experience'] },
     { id: 'certs', k: ['certif', 'course', 'coursera', 'hipaa', 'excel', 'mos', 'credential', 'qualification'],
       a: 'Alvin’s certificates include:\n- NDIS Worker Orientation and New Worker NDIS Induction modules\n- HIPAA Security Awareness & Privacy Training\n- Coursera projects: Canva web pages, and Excel charts & dashboards\n- Microsoft Office Specialist Excel 2016 (certificate of attendance)\nYou can click any certificate to view it larger.\n[View certificates](#certificates)',
-      next: ['What’s his education?', 'What do clients say about him?', 'How can I contact Alvin?'] },
+      next: ['What’s his education?', 'What do clients say about him?'] },
     { id: 'testimonials', k: ['testimonial', 'review', 'feedback', 'clients say', 'say about', 'recommend', 'reference', 'people say', 'worked with him'],
       a: 'Here’s what people who have worked with Alvin say:\n- **Matt D.** (Nonprofit Founder/CFO): “proactive approach and attention to detail”\n- **Anne C.** (Managing Director): “consistency, positive attitude, and the care he puts into his work”\n- **Sylvia C.** (CEO): “incredible work ethic and commitment to our purpose”\n[Read the testimonials](#testimonials)',
-      next: ['Tell me about his experience', 'What services does he offer?', 'How can I contact Alvin?'] },
+      next: ['Tell me about his experience', 'What services does he offer?'] },
     { id: 'pricing', k: ['rate', 'rates', 'price', 'pricing', 'cost', 'fee', 'how much', 'hourly', 'budget', 'quote', 'salary', 'package'],
-      a: 'Rates depend on the scope of the work and the hours involved, so Alvin doesn’t list fixed prices on the site. The best way to get a quote is to reach out through the contact section and share what you need.\n- **Book a free call:** [Pick a time](https://calendly.com/alvinsolteo-va/30min)\n- **Email:** [alvinsolteo.va@gmail.com](mailto:alvinsolteo.va@gmail.com)\n[Contact Alvin](#contact)', next: ['What services does he offer?', 'How can I contact Alvin?'] },
+      a: 'Rates depend on the scope of the work and the hours involved, and Alvin doesn’t list prices on this site, so I can’t give a quote here.', next: ['What services does he offer?'] },
     { id: 'availability', k: ['available', 'availability', 'start date', 'when can', 'book', 'calendly', 'appointment', 'consultation', 'free call', 'discovery call', 'schedule a call', 'open to work', 'full-time', 'part-time', 'full time', 'part time', 'hire him', 'hire alvin', 'hire you', 'work with you'],
-      a: 'I don’t have Alvin’s current availability, but you can book a free call with him to talk through what you need and when you’d like to start.\n- **Book a free call:** [Pick a time](https://calendly.com/alvinsolteo-va/30min)\n- **Email:** [alvinsolteo.va@gmail.com](mailto:alvinsolteo.va@gmail.com)', next: ['What services does he offer?', 'What do clients say about him?'] },
+      a: 'I don’t have Alvin’s current availability, so I can’t say when he could start. What I can do is walk you through his services, experience and tools.', next: ['What services does he offer?', 'What do clients say about him?'] },
     { id: 'contact', k: ['contact', 'reach', 'email', 'get in touch', 'message', 'talk to', 'speak', 'call', 'phone', 'whatsapp', 'number', 'linkedin', 'connect'],
-      a: 'You can reach Alvin directly:\n- **Book a free call:** [Pick a time](https://calendly.com/alvinsolteo-va/30min)\n- **Email:** [alvinsolteo.va@gmail.com](mailto:alvinsolteo.va@gmail.com)\n- **Phone:** [+63 981 095 2003](tel:+639810952003)\n- **LinkedIn:** [Alvin Solteo](https://www.linkedin.com/in/alvin-solteo-897347292/)\n[Go to the contact section](#contact)', next: ['What services does he offer?', 'What do clients say about him?'] },
+      a: 'Alvin’s contact details aren’t listed on this site, so I can’t share them here. I can tell you about his **services, experience, tools and credentials** instead.', next: ['What services does he offer?', 'What do clients say about him?'] },
     { id: 'location', k: ['where', 'location', 'based', 'time zone', 'timezone', 'philippines', 'davao', 'country', 'remote'],
-      a: 'Alvin is based in **Davao City, Philippines**, and has supported teams based in the U.S., Australia and Switzerland as well as the Philippines.', next: ['Tell me about his experience', 'How can I contact Alvin?'] },
+      a: 'Alvin is based in **Davao City, Philippines**, and has supported teams based in the U.S., Australia and Switzerland as well as the Philippines.', next: ['Tell me about his experience'] },
     { id: 'video', k: ['video', 'recording', 'watch', 'intro video', 'see him', 'hear him'],
-      a: 'There’s a short EVS video recording on this page where you can see and hear Alvin introduce himself and his work.\n[Watch the video](#recording)', next: ['Tell me about Alvin', 'How can I contact Alvin?'] },
+      a: 'There’s a short EVS video recording on this page where you can see and hear Alvin introduce himself and his work.\n[Watch the video](#recording)', next: ['Tell me about Alvin'] },
     { id: 'thanks', k: ['thanks', 'thank you', 'salamat', 'great', 'awesome', 'perfect', 'cool'],
-      a: 'You’re welcome! If you’d like to talk to Alvin directly, the contact section is the quickest way.\n[Contact Alvin](#contact)', next: DEFAULT_CHIPS }
+      a: 'You’re welcome! Let me know if there’s anything else you’d like to know about Alvin’s work.', next: DEFAULT_CHIPS }
   ];
 
   var FALLBACK = {
-    a: 'I couldn’t find that in Alvin’s portfolio. I can help with his **services, experience, tools, education, certificates and testimonials** — and for anything else, the best move is to ask him directly through the contact section.\n[Contact Alvin](#contact)',
+    a: 'I couldn’t find that in Alvin’s portfolio. I can help with his **services, experience, tools, education, certificates and testimonials**.',
     next: DEFAULT_CHIPS
   };
 
@@ -100,7 +100,7 @@
     if (/^(hi|hello|hey|yo|good (morning|afternoon|evening)|kumusta)\b/i.test(t) && t.split(/\s+/).length <= 4) return KB[0];
     var tm = toolMatch(t);
     if (tm) {
-      return { a: 'Yes — **' + tm.name + '** is part of Alvin’s toolkit (' + tm.cat + ').\n[Browse the toolkit](#tools)', next: ['Which tools does he use?', 'What services does he offer?', 'How can I contact Alvin?'] };
+      return { a: 'Yes — **' + tm.name + '** is part of Alvin’s toolkit (' + tm.cat + ').\n[Browse the toolkit](#tools)', next: ['Which tools does he use?', 'What services does he offer?'] };
     }
     var best = null, bestScore = 0;
     for (var i = 1; i < KB.length; i++) {
@@ -116,8 +116,6 @@
     s = esc(s);
     s = s.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
     s = s.replace(/\[([^\]]+)\]\((#[a-z-]+)\)/g, '<a class="chat-link" href="$2">$1</a>');
-    s = s.replace(/\[([^\]]+)\]\(((?:mailto:[^\s)]+)|(?:tel:\+?[0-9]+))\)/g, '<a class="chat-link" href="$2">$1</a>');
-    s = s.replace(/\[([^\]]+)\]\((https:\/\/[^\s)]+)\)/g, '<a class="chat-link" href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
     return s;
   }
   function render(text) {

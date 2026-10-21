@@ -237,8 +237,8 @@ tmStage.addEventListener('pointerup',e=>{if(tmX===null)return;const dx=e.clientX
 tmGo(0);tmRestart();
 addEventListener('resize',tmFit);addEventListener('load',tmFit);if(document.fonts&&document.fonts.ready)document.fonts.ready.then(tmFit);
 
-/* footer: open chat assistant */
-document.getElementById('footChat').addEventListener('click',()=>{const f=document.getElementById('chatFab');if(f&&f.getAttribute('aria-expanded')!=='true')f.click()});
+/* footer + closing section: buttons that open the chat assistant */
+['footChat','ctaChat'].forEach(id=>{const b=document.getElementById(id);if(b)b.addEventListener('click',()=>{const f=document.getElementById('chatFab');if(f&&f.getAttribute('aria-expanded')!=='true')f.click()})});
 
 /* nav */
 const nav=document.getElementById('nav'),menuBtn=document.getElementById('menuBtn');

@@ -104,11 +104,12 @@ Open `js/chat.js` and look for the `KB` array. Each entry has keywords (`k`), th
 
 ## Contact details
 
-The **Book a Free Call** button (top navigation and mobile menu) opens Alvin's Calendly page: `https://calendly.com/alvinsolteo-va/30min`. His email and phone number appear in the closing call-to-action button and the chat assistant's answers; the footer shows only the LinkedIn link and location. To change them, search the project for `alvinsolteo.va@gmail.com`, `+63 981 095 2003` / `+639810952003` and `alvin-solteo-897347292` and update these places:
+This version of the site **does not publish any contact details** (no email, phone, LinkedIn or booking link).
 
-- `index.html` (the Book a Free Call buttons, the "Get in touch" button and the footer LinkedIn link)
-- `js/chat.js` (the `contact`, `pricing` and `availability` answers in the `KB` array)
-- `functions/api/chat.js` (the `CONTACT DETAILS` block of `SYSTEM_PROMPT`, used by AI mode)
+- The hero button **Let's work together** scrolls down to the closing section ("Ready for a more organized way forward?").
+- The **Get in touch** button in that section, and the **Ask my assistant** link in the footer, open the chat assistant. The assistant tells visitors that contact details aren't listed on the site.
+
+To point **Get in touch** at a real destination later (for example a `mailto:` link, LinkedIn profile or booking page), replace the `<button id="ctaChat">` in the `#connect` section of `index.html` with a normal link such as `<a class="btn primary" href="https://…">Get in touch</a>`, and update the matching answers in `js/chat.js` (`contact`, `pricing`, `availability` in the `KB` array) and the rules in `functions/api/chat.js` (`SYSTEM_PROMPT`).
 
 ## Optional extras
 
@@ -125,7 +126,7 @@ The **Book a Free Call** button (top navigation and mobile menu) opens Alvin's C
 | Marquee logos | `LOGOS` in `js/main.js` and the files in `assets/logos/orgs/` |
 | Certificates | the `certs` array in `js/main.js` and the files in `assets/certificates/` |
 | Chat answers | the `KB` array in `js/chat.js` |
-| Footer (links, contact details, disclaimer) | the `<footer>` at the bottom of `index.html` |
+| Footer (links, disclaimer) | the `<footer>` at the bottom of `index.html` |
 | Colors and fonts | the `:root` block at the top of `css/styles.css` |
 
 ## Credits and notes
