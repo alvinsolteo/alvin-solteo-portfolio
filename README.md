@@ -7,14 +7,13 @@ Plain HTML, CSS and JavaScript. There is **no build step and no dependencies**. 
 ## Features
 
 - Loading screen on every visit (animated monogram, progress ring and a curtain reveal)
-- Chat assistant ("Alvin's Assistant") with suggested questions — works out of the box, with an optional upgrade to a real AI model
 - Warm, editorial design with light and dark themes (follows the visitor's system setting)
 - Hero with portrait, floating service cards and scroll indicator
 - "Worked with teams" logo marquee
 - About section with animated counters, services, and an experience timeline that fills as you scroll
 - Tools section with category tabs and 59 tool logos
 - Education, certificates gallery with lightbox, and a video recording
-- Testimonials carousel (arrows, name tabs, swipe, keyboard, auto-advance)
+- Compact testimonials carousel (arrows, name tabs, swipe, keyboard, auto-advance); long quotes collapse behind a "Read more" button, so the card stays small on phones
 - Scroll progress bar, reveal-on-scroll animations, mobile menu
 - Respects `prefers-reduced-motion`
 
@@ -26,11 +25,7 @@ Plain HTML, CSS and JavaScript. There is **no build step and no dependencies**. 
 ├── css/
 │   └── styles.css          All styling (design tokens + dark mode at the top)
 ├── js/
-│   ├── main.js             Loading screen, tools data, tabs, lightbox, video, carousel, animations
-│   └── chat.js             Chat assistant widget + built-in answers
-├── functions/
-│   └── api/
-│       └── chat.js         OPTIONAL Cloudflare Pages Function that powers AI replies
+│   └── main.js             Loading screen, tools data, tabs, lightbox, video, carousel, animations
 ├── assets/
 │   ├── images/             Portrait and video poster
 │   ├── video/              EVS video recording (mp4)
@@ -55,61 +50,30 @@ python3 -m http.server 8000
 
 ## Deploy
 
+The site is fully static, so any static host works.
+
 ### GitHub Pages
 1. Create a repository and upload the **contents** of this folder (so `index.html` is at the repository root).
 2. **Settings → Pages → Build and deployment → Deploy from a branch**, choose `main` and `/ (root)`, then **Save**.
-
-GitHub Pages serves static files only, so the chat runs in **built-in mode** there (see below).
 
 ### Cloudflare Pages
 1. Create a **Pages** project and connect the GitHub repository.
 2. Leave the **build command empty** and set the **output directory** to `/` (the root).
 3. Deploy. Every push to `main` redeploys automatically.
 
-Cloudflare Pages also runs the files in `functions/` automatically, which is what enables the optional AI mode.
-
 ## The loading screen
 
 - Shows on **every visit and every refresh**.
 - Finishes as soon as the page has loaded, with a short minimum time so it doesn't flash. A failsafe always removes it.
 - Edit the timings (`MIN`, `MAX`) at the top of `js/main.js`; the look is in the `/* loading screen */` block of `css/styles.css`.
-- To make it show only once per browser session instead, add a `sessionStorage` check in the inline `<script>` in the `<head>` of `index.html` and set the flag in `finish()` in `js/main.js`.
-
-## The chat assistant
-
-The widget (`js/chat.js`) has two modes and picks the right one automatically.
-
-**1. Built-in mode (default — nothing to set up).** The assistant answers from a small knowledge base written inside `js/chat.js`: services, experience, tools (including "Do you use Asana?"-style questions), education, certificates, testimonials, location, contact and so on. It matches keywords in the visitor's question, so it is **not** an AI model: it can't answer questions outside what is written there, and it says so politely and points to the contact section. It works on GitHub Pages, Cloudflare, or any static host, and costs nothing.
-
-**2. AI mode (optional — Cloudflare Pages).** If `/api/chat` exists, replies come from a real AI model instead, so visitors can ask free-form questions. The function in `functions/api/chat.js` keeps your API key on the server and never sends it to the browser. If the endpoint is missing or errors, the widget falls back to built-in mode on its own.
-
-### Turn on AI mode
-1. Deploy to **Cloudflare Pages** (see above).
-2. Get an API key from the [Anthropic Console](https://console.anthropic.com/). **Set a monthly spend limit there** — the chat is public.
-3. In Cloudflare: your Pages project → **Settings → Variables and Secrets** (use the *Production* environment). Add:
-   - `ANTHROPIC_API_KEY` — your key (add it as a **Secret**)
-   - `ALLOWED_ORIGINS` — your site address(es), comma-separated, e.g. `https://yourname.pages.dev,https://yourdomain.com` (blocks other websites from using your endpoint)
-   - `ANTHROPIC_MODEL` — optional. The default is set at the top of `functions/api/chat.js`; check the [Claude docs](https://docs.claude.com) for current model names and pricing.
-4. **Redeploy** (variables apply to new deployments). Open the site and ask the chat a free-form question — the footer under the input changes to "AI assistant".
-
-### Safety notes for AI mode
-- The function only accepts short chat messages (last 10 messages, 600 characters each) and limits reply length.
-- The assistant is told to use only the facts in its prompt and to send anything else (rates, availability, phone, etc.) to the contact section.
-- For extra protection against abuse, add a **Cloudflare rate-limiting rule** for `/api/chat` (Security → WAF → Rate limiting rules).
-- If you change the site's content (new job, new tool, new certificate), update the facts in `SYSTEM_PROMPT` in `functions/api/chat.js` and the answers in `js/chat.js`.
-- If you deploy with Cloudflare **Workers** instead of **Pages**, the `functions/` folder is not used; the same code needs a small wrapper, or host the endpoint separately and set `endpoint` in `CHAT_CONFIG` at the top of `js/chat.js`.
-
-### Edit the built-in answers
-Open `js/chat.js` and look for the `KB` array. Each entry has keywords (`k`), the answer (`a`, supports `**bold**`, `- ` bullet lines and `[link text](#section-id)`) and follow-up suggestion chips (`next`). Set `aiEnabled: false` in `CHAT_CONFIG` to force built-in mode.
 
 ## Contact details
 
-This version of the site **does not publish any contact details** (no email, phone, LinkedIn or booking link).
+This version of the site **does not publish any contact details or links** (no email, phone, LinkedIn, booking link or chat assistant).
 
-- The hero button **Let's work together** scrolls down to the closing section ("Ready for a more organized way forward?").
-- The **Get in touch** button in that section, and the **Ask my assistant** link in the footer, open the chat assistant. The assistant tells visitors that contact details aren't listed on the site.
+- The hero button **Let's work together** scrolls down to the closing section ("Ready for a more organized way forward?"), which currently has only a **Back to top** button.
 
-To point **Get in touch** at a real destination later (for example a `mailto:` link, LinkedIn profile or booking page), replace the `<button id="ctaChat">` in the `#connect` section of `index.html` with a normal link such as `<a class="btn primary" href="https://…">Get in touch</a>`, and update the matching answers in `js/chat.js` (`contact`, `pricing`, `availability` in the `KB` array) and the rules in `functions/api/chat.js` (`SYSTEM_PROMPT`).
+To add a contact option later, add a normal link button next to **Back to top** in the `#connect` section of `index.html`, for example `<a class="btn primary" href="mailto:you@example.com">Get in touch</a>`.
 
 ## Optional extras
 
@@ -125,7 +89,6 @@ To point **Get in touch** at a real destination later (for example a `mailto:` l
 | A tool logo | replace the file in `assets/logos/tools/` (names are listed in the `ICONS` map in `js/main.js`) |
 | Marquee logos | `LOGOS` in `js/main.js` and the files in `assets/logos/orgs/` |
 | Certificates | the `certs` array in `js/main.js` and the files in `assets/certificates/` |
-| Chat answers | the `KB` array in `js/chat.js` |
 | Footer (links, disclaimer) | the `<footer>` at the bottom of `index.html` |
 | Colors and fonts | the `:root` block at the top of `css/styles.css` |
 
