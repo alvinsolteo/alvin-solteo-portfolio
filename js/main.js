@@ -1,11 +1,10 @@
 /* Alvin Solteo — Virtual Assistant Portfolio
    Behaviour: loading screen, tools tabs, certificates lightbox, video,
    testimonials carousel, scroll progress, reveal-on-scroll and counters.
-   (The chat assistant lives in js/chat.js.) */
+   */
 /* loading screen */
 const rootEl=document.documentElement;
 let loaderResolve; const loaderDone=new Promise(r=>loaderResolve=r);
-window.loaderDone=loaderDone;
 (function(){
   const el=document.getElementById('loader');
   if(!el||!rootEl.classList.contains('loading')){rootEl.classList.remove('loading');if(el)el.remove();loaderResolve();return}
@@ -102,7 +101,6 @@ const data=[
  ['E-Commerce & Marketing',['Amazon','AWS','Helium 10','Jungle Scout','Keepa','ClickFunnels','GoHighLevel','Meta','LinkedIn','Sales Navigator']],
  ['Design, Content & AI',['Claude','Canva','Lightroom','Adobe','CapCut','Microsoft Copilot','ChatGPT']]
 ];
-window.PORTFOLIO_TOOLS=data;
 const palette=['#b57456','#171d3b','#5d6486','#a4654a','#7a5c8a','#3f7f78','#c28a4a','#8a4f5e'];
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -237,8 +235,6 @@ tmStage.addEventListener('pointerup',e=>{if(tmX===null)return;const dx=e.clientX
 tmGo(0);tmRestart();
 addEventListener('resize',tmFit);addEventListener('load',tmFit);if(document.fonts&&document.fonts.ready)document.fonts.ready.then(tmFit);
 
-/* footer + closing section: buttons that open the chat assistant */
-['footChat','ctaChat'].forEach(id=>{const b=document.getElementById(id);if(b)b.addEventListener('click',()=>{const f=document.getElementById('chatFab');if(f&&f.getAttribute('aria-expanded')!=='true')f.click()})});
 
 /* nav */
 const nav=document.getElementById('nav'),menuBtn=document.getElementById('menuBtn');
